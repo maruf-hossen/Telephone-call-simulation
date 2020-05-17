@@ -1,19 +1,17 @@
 #include<iostream>
 #include<stdio.h>
 #include<vector>
-
 using namespace std;
 class waitPross{
 	public: int from,to,length,arrtime;
 };
 class callInPross{
 	public:
-		int from,to,end;
+	int from,to,end;
 };
 class procced{
 	public:
-	int exicuted,succed,busy,blocked;
-	
+	int exicuted,succed,busy,blocked;	
 };
 void display(vector<waitPross> &waitTable,vector<callInPross> & proccesTable,waitPross next,int clock,int max,int used,vector<int>flag,procced proccess) {
 	cout << "Waiting Table:" << endl << "From To Arrived length" << endl;
@@ -159,9 +157,6 @@ void simulate(vector<waitPross> &waitting, vector<callInPross>& running, waitPro
 			next.arrtime = 99999999;
 		}
 	}
-
-
-
 }
 
 	
@@ -197,8 +192,7 @@ int main(){
 		cin >> callProc.from >> callProc.to >> callProc.end;
 		flag[callProc.from] = 1;
 		flag[callProc.to] = 1;
-		proccessing.push_back(callProc);
-		
+		proccessing.push_back(callProc);	
 	}
 	procced proccess;
 	cout << "Enter the Current prograss of the simulator: " << "Total proccess Succed Busy Blocked " << endl;
@@ -220,14 +214,7 @@ int main(){
 	       simulate(waitting,proccessing,nextCall,clock,maxLinks,usedLinks,flag,proccess);
 	       int a;
 	       cin >> a;
-
 	}
 	display(waitting, proccessing, nextCall, clock, maxLinks, usedLinks, flag,proccess);
-	
-		
-	
-			
-
-
 	return 0;
 }
